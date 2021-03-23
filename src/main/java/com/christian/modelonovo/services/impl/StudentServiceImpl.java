@@ -2,13 +2,17 @@ package com.christian.modelonovo.services.impl;
 
 import com.christian.modelonovo.domain.StudentDomain;
 import com.christian.modelonovo.exceptions.SyntaxErrorException;
+import com.christian.modelonovo.filters.StudentFilter;
 import com.christian.modelonovo.interfaces.json.StudentJson;
 import com.christian.modelonovo.repository.StudentRepository;
 import com.christian.modelonovo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -35,8 +39,15 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<StudentDomain> getAllStudent() {
-        return studentRepository.findAll();
+    public Page<StudentDomain> getStudent(Pageable page, String email) {
+        Pageable pageAble = PageRequest.of(page.getPageNumber(), page.getPageSize());
+
+        if (Objects.nonNull(email)) {
+
+            StudentFilter studentFilter = StudentFilter.builder().email(email.toLowerCase()).build();
+            return studentRepository.findAll(studentFilter.predicate(), pageAble);
+        }
+        return studentRepository.findAll(pageAble);
     }
 
 }

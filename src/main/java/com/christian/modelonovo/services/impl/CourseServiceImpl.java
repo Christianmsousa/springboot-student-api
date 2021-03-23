@@ -1,13 +1,17 @@
 package com.christian.modelonovo.services.impl;
 
 import com.christian.modelonovo.domain.CourseDomain;
+import com.christian.modelonovo.filters.CourseFilter;
 import com.christian.modelonovo.interfaces.json.CourseJson;
 import com.christian.modelonovo.repository.CourseRepository;
 import com.christian.modelonovo.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -23,7 +27,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<CourseDomain> getAllCourse() {
-        return courseRepository.findAll();
+    public Page<CourseDomain> getCourse(Pageable page, String name) {
+        Pageable pageAble = PageRequest.of(page.getPageNumber(), page.getPageSize());
+        if (Objects.nonNull(name)) {
+            CourseFilter courseFilter = CourseFilter.builder().name(name).build();
+            return courseRepository.findAll(courseFilter.predicate(), pageAble);
+        }
+        return courseRepository.findAll(pageAble);
     }
+
 }

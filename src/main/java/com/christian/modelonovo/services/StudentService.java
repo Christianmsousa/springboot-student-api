@@ -3,10 +3,11 @@ package com.christian.modelonovo.services;
 import com.christian.modelonovo.domain.StudentDomain;
 import com.christian.modelonovo.interfaces.json.StudentJson;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface StudentService {
     StudentDomain createStudent(StudentJson studentJson);
 
-    List<StudentDomain> getAllStudent();
+    Page<StudentDomain> getStudent(Pageable page, String email);
 }

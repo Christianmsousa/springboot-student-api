@@ -5,10 +5,12 @@ import com.christian.modelonovo.domain.EnrollmentDomain;
 import com.christian.modelonovo.domain.StudentDomain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EnrollmentRepository extends JpaRepository<EnrollmentDomain, Long> {
+public interface EnrollmentRepository
+        extends JpaRepository<EnrollmentDomain, Long>, QuerydslPredicateExecutor<EnrollmentDomain> {
 
     // @Query(value = "SELECT * FROM enrollment WHERE course_id = :course AND
     // student_id = :student", nativeQuery = true)

@@ -39,7 +39,7 @@ public class CourseDomain {
 
     public static CourseDomain fromCourseJson(CourseJson courseJson) {
 
-        return new CourseDomain(courseJson.getName(), courseJson.getDuration());
+        return new CourseDomain(courseJson.getName().toLowerCase(), courseJson.getDuration());
     }
 
 }

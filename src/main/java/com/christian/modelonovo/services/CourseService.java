@@ -3,10 +3,11 @@ package com.christian.modelonovo.services;
 import com.christian.modelonovo.domain.CourseDomain;
 import com.christian.modelonovo.interfaces.json.CourseJson;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface CourseService {
     CourseDomain createCourse(CourseJson courseJson);
 
-    List<CourseDomain> getAllCourse();
+    Page<CourseDomain> getCourse(Pageable page, String name);
 }
