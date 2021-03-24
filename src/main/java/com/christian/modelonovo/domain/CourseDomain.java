@@ -27,7 +27,7 @@ public class CourseDomain {
     @Column(name = "duration", nullable = false)
     private Long duration;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "enrollment", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
     @JsonIgnoreProperties({ "age", "courses", "email" })
     private List<StudentDomain> students;

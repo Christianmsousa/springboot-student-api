@@ -1,6 +1,7 @@
 package com.christian.modelonovo.services.impl;
 
 import com.christian.modelonovo.domain.CourseDomain;
+import com.christian.modelonovo.exceptions.NotFoundException;
 import com.christian.modelonovo.filters.CourseFilter;
 import com.christian.modelonovo.interfaces.json.CourseJson;
 import com.christian.modelonovo.repository.CourseRepository;
@@ -36,4 +37,17 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findAll(pageAble);
     }
 
+    @Override
+    public CourseDomain findById(Long Id) {
+
+        return courseRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+
+    }
+
+    @Override
+    public void delete(Long Id) {
+        var course = courseRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+
+        courseRepository.deleteById(course.getId());
+    }
 }

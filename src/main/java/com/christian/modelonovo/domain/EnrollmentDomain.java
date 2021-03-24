@@ -21,12 +21,12 @@ public class EnrollmentDomain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "course_id")
     @JsonIgnoreProperties({ "duration", "students" })
     private CourseDomain course;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "student_id")
     @JsonIgnoreProperties("courses")
     private StudentDomain student;

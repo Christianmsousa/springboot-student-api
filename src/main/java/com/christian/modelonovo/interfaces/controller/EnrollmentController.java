@@ -38,4 +38,14 @@ public class EnrollmentController {
 
         return enrollmentService.getEnrollment(page, course, student);
     }
+
+    @GetMapping("/{id}")
+    public EnrollmentDomain findById(@PathVariable(value = "id") Long Id) {
+        return enrollmentService.findById(Id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable(value = "id") Long Id) {
+        enrollmentService.delete(Id);
+    }
 }

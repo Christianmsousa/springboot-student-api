@@ -12,4 +12,8 @@ public interface EnrollmentService {
     EnrollmentDomain createEnrollment(EnrollmentJson enrollmentJson);
 
     Page<EnrollmentDomain> getEnrollment(Pageable page, Optional<String> course, Optional<String> student);
+
+    EnrollmentDomain findById(Long Id);
+
+    void delete(Long Id);
 }

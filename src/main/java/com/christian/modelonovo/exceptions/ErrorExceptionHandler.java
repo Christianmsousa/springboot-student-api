@@ -24,7 +24,7 @@ public class ErrorExceptionHandler {
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ExceptionHandler(NotFoundException.class)
   public MessageError<MessageErrorList> notFound() {
-    return new MessageError<MessageErrorList>("Not found", 404, MessageErrorList.USER_NOT_FOUND);
+    return new MessageError<MessageErrorList>("Not found", 404, MessageErrorList.NOT_FOUND);
   }
 
   @ResponseStatus(HttpStatus.CONFLICT)

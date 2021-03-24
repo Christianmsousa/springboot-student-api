@@ -10,4 +10,9 @@ public interface StudentService {
     StudentDomain createStudent(StudentJson studentJson);
 
     Page<StudentDomain> getStudent(Pageable page, String email);
+
+    StudentDomain findById(Long Id);
+
+    void delete(Long Id);
+
 }

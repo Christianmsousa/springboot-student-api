@@ -10,4 +10,8 @@ public interface CourseService {
     CourseDomain createCourse(CourseJson courseJson);
 
     Page<CourseDomain> getCourse(Pageable page, String name);
+
+    CourseDomain findById(Long Id);
+
+    void delete(Long Id);
 }

@@ -35,4 +35,14 @@ public class CourseController {
             Pageable page) {
         return courseService.getCourse(page, name);
     }
+
+    @GetMapping("/{id}")
+    public CourseDomain findById(@PathVariable(value = "id") Long Id) {
+        return courseService.findById(Id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable(value = "id") Long Id) {
+        courseService.delete(Id);
+    }
 }

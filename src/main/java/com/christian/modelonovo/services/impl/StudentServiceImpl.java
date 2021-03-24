@@ -1,6 +1,7 @@
 package com.christian.modelonovo.services.impl;
 
 import com.christian.modelonovo.domain.StudentDomain;
+import com.christian.modelonovo.exceptions.NotFoundException;
 import com.christian.modelonovo.exceptions.SyntaxErrorException;
 import com.christian.modelonovo.filters.StudentFilter;
 import com.christian.modelonovo.interfaces.json.StudentJson;
@@ -48,6 +49,19 @@ public class StudentServiceImpl implements StudentService {
             return studentRepository.findAll(studentFilter.predicate(), pageAble);
         }
         return studentRepository.findAll(pageAble);
+    }
+
+    @Override
+    public StudentDomain findById(Long Id) {
+
+        return studentRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+    }
+
+    @Override
+    public void delete(Long Id) {
+        var student = studentRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+
+        studentRepository.delete(student);
     }
 
 }

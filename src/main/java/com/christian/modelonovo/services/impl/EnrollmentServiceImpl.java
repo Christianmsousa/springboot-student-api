@@ -63,4 +63,16 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
     }
 
+    @Override
+    public EnrollmentDomain findById(Long Id) {
+
+        return enrollmentRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+    }
+
+    @Override
+    public void delete(Long Id) {
+        var enroll = enrollmentRepository.findById(Id).orElseThrow(() -> new NotFoundException());
+
+        enrollmentRepository.delete(enroll);
+    }
 }
