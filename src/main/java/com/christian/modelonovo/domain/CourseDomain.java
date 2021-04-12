@@ -28,6 +28,11 @@ public class CourseDomain {
     private Long duration;
 
     @ManyToMany(cascade = CascadeType.DETACH)
+    @JoinTable(name = "class_control", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
+    // @JsonIgnoreProperties({ "age", "courses", "email" })
+    private List<SubjectDomain> subjects;
+
+    @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "enrollment", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "student_id"))
     @JsonIgnoreProperties({ "age", "courses", "email" })
     private List<StudentDomain> students;

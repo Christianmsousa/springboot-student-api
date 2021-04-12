@@ -19,7 +19,6 @@ public class StudentJson {
     @NotNull
     private String name;
 
-    // @NotEmpty
     @NotNull
     @Email
     private String email;

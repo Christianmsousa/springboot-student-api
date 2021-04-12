@@ -1,12 +1,9 @@
 package com.christian.modelonovo.interfaces.json;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.NotNull;
-
 
 @Data
 @AllArgsConstructor
@@ -18,6 +15,5 @@ public class EnrollmentJson {
 
     @NotNull
     private Long student_id;
-
 
 }

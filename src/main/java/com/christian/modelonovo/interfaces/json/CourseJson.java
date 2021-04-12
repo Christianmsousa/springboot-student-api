@@ -18,4 +18,8 @@ public class CourseJson {
     @NotNull
     @Range(max = 5)
     private Long duration;
+
+    // @NotNull
+    // private String au;
+
 }

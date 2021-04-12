@@ -28,6 +28,8 @@ public class QCourseDomain extends EntityPathBase<CourseDomain> {
 
     public final ListPath<StudentDomain, QStudentDomain> students = this.<StudentDomain, QStudentDomain>createList("students", StudentDomain.class, QStudentDomain.class, PathInits.DIRECT2);
 
+    public final ListPath<SubjectDomain, QSubjectDomain> subjects = this.<SubjectDomain, QSubjectDomain>createList("subjects", SubjectDomain.class, QSubjectDomain.class, PathInits.DIRECT2);
+
     public QCourseDomain(String variable) {
         super(CourseDomain.class, forVariable(variable));
     }

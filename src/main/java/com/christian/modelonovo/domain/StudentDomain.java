@@ -42,7 +42,8 @@ public class StudentDomain {
     }
 
     public static StudentDomain fromStudentJson(StudentJson studentJson) {
-        return new StudentDomain(studentJson.getName(), studentJson.getEmail(), studentJson.getAge());
+        return new StudentDomain(studentJson.getName().toLowerCase(), studentJson.getEmail().toLowerCase(),
+                studentJson.getAge());
     }
 
 }
