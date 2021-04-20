@@ -1,17 +1,16 @@
 package com.christian.modelonovo.filters;
 
-import java.util.List;
-import java.util.Objects;
-
 import com.christian.modelonovo.domain.QCourseDomain;
 import com.google.common.collect.Lists;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
-
+import java.util.List;
+import java.util.Objects;
 import lombok.Builder;
 
 @Builder
 public class CourseFilter {
+
   private String name;
 
   public Predicate predicate() {

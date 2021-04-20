@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepository
-    extends JpaRepository<StudentDomain, Long>, QuerydslPredicateExecutor<StudentDomain> {
-}
+  extends
+    JpaRepository<StudentDomain, Long>,
+    QuerydslPredicateExecutor<StudentDomain> {}

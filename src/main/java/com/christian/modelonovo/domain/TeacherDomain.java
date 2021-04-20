@@ -1,16 +1,13 @@
 package com.christian.modelonovo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import com.christian.modelonovo.interfaces.json.TeacherJson;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 // import java.util.List;
 
 import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -48,6 +45,10 @@ public class TeacherDomain {
   }
 
   public static TeacherDomain fromTeacherJson(TeacherJson teacher) {
-    return new TeacherDomain(teacher.getName().toLowerCase(), teacher.getEmail().toLowerCase(), teacher.getAge());
+    return new TeacherDomain(
+      teacher.getName().toLowerCase(),
+      teacher.getEmail().toLowerCase(),
+      teacher.getAge()
+    );
   }
 }

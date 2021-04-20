@@ -1,18 +1,15 @@
 package com.christian.modelonovo.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
 import com.christian.modelonovo.interfaces.json.SubjectJson;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 // import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 // import java.util.List;
 
 import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

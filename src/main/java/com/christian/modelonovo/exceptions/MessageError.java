@@ -15,7 +15,6 @@ public class MessageError<T> {
     this.status = status;
     this.message = list;
   }
-
   // public MessageError(String error2, int status2, String message2) {
   // this.error = error;
   // this.status = status;

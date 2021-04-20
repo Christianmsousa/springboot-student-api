@@ -1,7 +1,6 @@
 package com.christian.modelonovo.domain;
 
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,10 @@ public class ClassControlDomain {
   @JoinColumn(name = "subject_id")
   private SubjectDomain subject;
 
-  public static ClassControlDomain fromClassControlJson(CourseDomain course, SubjectDomain subject) {
+  public static ClassControlDomain fromClassControlJson(
+    CourseDomain course,
+    SubjectDomain subject
+  ) {
     return new ClassControlDomain(null, course, subject);
   }
 }

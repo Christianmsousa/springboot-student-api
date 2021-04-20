@@ -6,5 +6,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CourseRepository extends JpaRepository<CourseDomain, Long>, QuerydslPredicateExecutor<CourseDomain> {
-}
+public interface CourseRepository
+  extends
+    JpaRepository<CourseDomain, Long>,
+    QuerydslPredicateExecutor<CourseDomain> {}
